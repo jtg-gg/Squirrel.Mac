@@ -225,7 +225,7 @@ NSString * const SQRLInstallerOwnedBundleKey = @"SQRLInstallerOwnedBundle";
 		}]
 		flattenMap:^(NSURL *bundleURL) {
 			return [[[self
-				clearQuarantineForDirectory:bundleURL]
+				clearQuarantineForDirectory:[bundleURL URLByDeletingLastPathComponent]]
 				ignoreValues]
 				concat:[RACSignal return:bundleURL]];
 		}]
